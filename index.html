@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<body>
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="css/styles.css" rel="stylesheet" type="text/css">
+		<script src="js/scripts.js"></script>
+		<title>Pig Dice</title>
+	</body>
+	<head>
+		<div class="container">
+			<h1>Pig Dice</h1>
+			<hr>
+			<h2>Let's play a game!</h2>
+			<p>Each player takes turns to roll the dice as many times as they wish. The result of each roll will be added to a running total for each player. If the player rolls a 1, their gained score for their turn will be lost.
+			</p>
+			<ul>
+				<li>If the player rolls a 1, they score nothing and it becomes the other players turn.
+				</li>
+				<li>If the player rolls a number other than 1, it is added to their turn total and the player can continue rolling.
+				</li>
+				<li>If the player chooses to "hold", their turn total is added to their total score, and it becomes the other players turn.
+				</li>
+			</ul>
+			<div class="dice">
+				<h3>Player 1</h3>
+				<p>Current score:</p>
+				<p>Total score:</p>
+			</div>
+			<br>
+			<div class="dice">
+				<h3>Player 2</h3>
+				<p>Current score:</p>
+				<p>Total score:</p>
+			</div>
+			<button type="submit">Start Game</button>
+			<button type="submit">Roll!</button>
+			<button type="submit">Hold</button>
+		</div>
+	</head>
+</html>
