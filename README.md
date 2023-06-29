@@ -2,6 +2,9 @@
 2. Allow one player to roll the dice.
 3. It will return a number from 1 to 6.
 4. If the player rolls a 1, they score nothing and it becomes the other players turn.
+	* Each player will need a name.
+	* Each player will need a score.
+	* There needs to be a Game object to track each players turn.
 5. If the player rolls a number other than 1, they can roll again.
 6. If the player rolls a number other than 1, each number rolled will be added to a running total for their turn.
 7. If the player rolls a 1, their gained score for their turn will be lost.
