@@ -12,4 +12,29 @@
 Describe: rollDice()
 
 Test: Allow one player to roll the dice.
-let
+Code: let rollDice = Math.floor(Math.random() * 6) +1;
+Expected Output: Any number between 1 and 6.
+
+Describe: Player()
+
+Test: Each player will need a name and a score.
+Code:
+let player = new Player();
+Expected Output: {playerName: "", score: 0};
+
+Describe: addName()
+
+Test: Add a name to the player object.
+Code:
+let player = new Player();
+player.addName("Bob");
+player.playerName;
+Expected Output: "Bob";
+
+Describe: Game()
+
+Test: The game will need a current player turn.
+Code:
+let game = new Game();
+game;
+Expected Output: {currentPlayerTurn: ""};
