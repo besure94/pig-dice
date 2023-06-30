@@ -43,9 +43,18 @@ Describe: addScore()
 Test: Add the number the player rolls to their score.
 Code:
 let player = new Player();
-player.addScore(5);
+player.addScore(Math.floor(Math.random() * 6) + 1);
 player.playerScore;
-Expected Output: 5;
+Expected Output: {Math.floor(Math.random() * 6) + 1};
+
+Describe: rollAgain()
+
+Test: Allow the player to roll the dice more than once.
+Code:
+let player = new Player();
+player.rollAgain(Math.floor(Math.random() * 6) + 1);
+player.newRoll;
+Expected Output: {Math.floor(Math.random() * 6) + 1};
 
 Describe: Game()
 
