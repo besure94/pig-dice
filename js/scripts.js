@@ -1,12 +1,3 @@
-// function Dice() {
-// 	this.dice = 1;
-// 	this.diceValue = 0;
-// }
-
-let rollDice = Math.floor(Math.random() * 6) +1;
-
-console.log("You rolled a", rollDice);
-
 function Player() {
 	this.playerName = "";
 	this.score = 0;
@@ -28,6 +19,14 @@ function Game() {
 let game = new Game();
 
 console.log(game);
+
+function Dice() {
+	this.diceRoll = Math.floor(Math.random() * 6) + 1;
+}
+
+let dice = new Dice();
+
+console.log(dice);
 
 // let player = new Player();
 
