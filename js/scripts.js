@@ -1,19 +1,23 @@
 function Player() {
-	this.playerName = "";
-	this.score = 0;
+	this.playerOneName = "";
+	this.playerTwoName = "";
+	this.playerOneScore = 0;
+	this.playerTwoScore = 0;
 }
 
-Player.prototype.addName = function(userName) {
-	this.playerName = userName;
+Player.prototype.addName = function(userNameOne, userNameTwo) {
+	this.playerOneName = userNameOne;
+	this.playerTwoName = userNameTwo;
 }
 
 Player.prototype.addScore = function() {
-	this.score = Math.floor(Math.random() * 6) +1;
+	this.playerOneScore = Math.floor(Math.random() * 6) +1;
+	this.playerTwoScore = Math.floor(Math.random() * 6) +1;
 }
 
 let player = new Player();
 
-player.addName("Bob");
+player.addName("Bob", "Alex");
 player.addScore();
 console.log(player);
 
