@@ -7,14 +7,14 @@ Player.prototype.addName = function(userName) {
 	this.playerName = userName;
 }
 
-Player.prototype.addScore = function(rolledNumber) {
-	this.score = rolledNumber;
+Player.prototype.addScore = function() {
+	this.score = Math.floor(Math.random() * 6) +1;
 }
 
 let player = new Player();
 
 player.addName("Bob");
-player.addScore(5);
+player.addScore();
 console.log(player);
 
 function Game() {
@@ -25,13 +25,13 @@ let game = new Game();
 
 console.log(game);
 
-function Dice() {
-	this.diceRoll = Math.floor(Math.random() * 6) + 1;
-}
+// function Dice() {
+// 	this.diceRoll = Math.floor(Math.random() * 6) + 1;
+// }
 
-let dice = new Dice();
+// let dice = new Dice();
 
-console.log(dice);
+// console.log(dice);
 
 // let player = new Player();
 
