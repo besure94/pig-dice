@@ -7,9 +7,14 @@ Player.prototype.addName = function(userName) {
 	this.playerName = userName;
 }
 
+Player.prototype.addScore = function(rolledNumber) {
+	this.score = rolledNumber;
+}
+
 let player = new Player();
 
 player.addName("Bob");
+player.addScore(5);
 console.log(player);
 
 function Game() {
