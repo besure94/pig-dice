@@ -15,18 +15,19 @@
 8. If the player "holds", their turn total is added to their total score.
 9. If a player scores 100 first, that player wins the game.
 
-<!-- Describe: rollDice()
-
-Test: Allow one player to roll the dice.
-Code: let rollDice = Math.floor(Math.random() * 6) +1;
-Expected Output: Any number between 1 and 6. -->
-
 Describe: Player()
 
 Test: Each player will need a name and a score.
 Code:
 let player = new Player();
+player;
 Expected Output: {playerName: "", score: 0};
+
+<!-- Test: Each player will need to be able to roll the dice.
+Code:
+let player = new Player();
+player.playerRoll;
+Expected Output: -->
 
 Describe: addName()
 
@@ -36,6 +37,15 @@ let player = new Player();
 player.addName("Bob");
 player.playerName;
 Expected Output: "Bob";
+
+Describe: addScore()
+
+Test: Add the number the player rolls to their score.
+Code:
+let player = new Player();
+player.addScore(5);
+player.playerScore;
+Expected Output: 5;
 
 Describe: Game()
 
@@ -50,4 +60,4 @@ Describe: Dice()
 Test: The game will need a Dice object.
 Code: let dice = new Dice();
 dice;
-Expected Output: {diceRoll: Math.floor(Math.random() * 6) +1};
+Expected Output: {diceRoll: Math.floor(Math.random() * 6) + 1};
