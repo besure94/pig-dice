@@ -1,43 +1,70 @@
+// 1. Create method that changes player turn.
+//		* Determine which player is currently playing and switch to the other player.
+// 2. Create a method to evaluate a roll.
+// 		* Take in current roll from player.
+//		* If it is a 1, players have to change turns.
+//		* If it is a 1, the player scores nothing for their turn.
+//		* If the number is not a 1, that roll is added to the current turn score total.
+// 		* If the number is not a 1, that player needs the option to roll again if they choose to do so.
+// 		*
+// 3. Store turn score as a property.
+// 4. Create a method to reset current player turn score.
+
 function Player() {
-	this.playerOneName = "";
-	this.playerTwoName = "";
-	this.playerOneScore = 0;
-	this.playerTwoScore = 0;
+	this.playerName = "";
+	this.playerScore = 0;
 }
 
-Player.prototype.addName = function(userNameOne, userNameTwo) {
-	this.playerOneName = userNameOne;
-	this.playerTwoName = userNameTwo;
+Player.prototype.addName = function(userName) {
+	this.playerName = userName;
+};
+
+Player.prototype.addScore = function(roundTotalScore) {
+	this.playerScore = this.playerScore + roundTotalScore;
+};
+
+function Game(playerOne, playerTwo) {
+	this.currentPlayerTurn = 0;
+	this.players = [playerOne, playerTwo];
 }
 
-Player.prototype.addScore = function() {
-	this.playerOneScore = Math.floor(Math.random() * 6) +1;
-	this.playerTwoScore = Math.floor(Math.random() * 6) +1;
+Game.prototype.rollDice = function() {
+	return (Math.floor(Math.random() * 6) + 1);
 }
 
-let player = new Player();
-
-player.addName("Bob", "Alex");
-player.addScore();
-console.log(player);
-
-function Game() {
-	this.currentPlayerTurn = "";
+Game.prototype.changePlayerTurn = function() {
+	if (this.currentPlayerTurn === 0) {
+		this.currentPlayerTurn = 1;
+	} else {
+		this.currentPlayerTurn = 0;
+	}
 }
 
-let game = new Game();
+Game.prototype.evaluateRoll = function() {
+	let roll = this.rollDice();
+	if (roll === 1) {
+		this.changePlayerTurn();
+	}
+}
 
+let playerOne = new Player();
+let playerTwo = new Player();
+playerOne.addName("Bob");
+// playerOne.addScore(game.rollDice());
+playerTwo.addName("Alex");
+// playerTwo.addScore(game.rollDice());
+let game = new Game(playerOne, playerTwo);
 console.log(game);
+console.log(game.players[game.currentPlayerTurn]);
+console.log(game.evaluateRoll());
+console.log(game.players[game.currentPlayerTurn]);
 
-// function Dice() {
-// 	this.diceRoll = Math.floor(Math.random() * 6) + 1;
-// }
-
-// let dice = new Dice();
-
-// console.log(dice);
-
-// let player = new Player();
+console.log("Roll one: ", playerOne);
+console.log("Roll one: ", playerTwo);
+playerOne.addScore(game.rollDice());
+playerTwo.addScore(game.rollDice());
+console.log("Roll two: ", playerOne);
+console.log("Roll two: ", playerTwo);
 
 // Player.prototype.rollOne = function() {
 // 	if (this.roll === 1) {
