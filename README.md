@@ -47,14 +47,23 @@ player.addScore(Math.floor(Math.random() * 6) + 1);
 player.playerScore;
 Expected Output: {Math.floor(Math.random() * 6) + 1};
 
-Describe: rollAgain()
+Describe: currentScore()
+
+Test: Add the current players next roll to their score.
+Code:
+let player = new Player();
+player.currentScore(playerOneScore + (Math.floor(Math.random() * 6) + 1));
+player.newScore;
+Expected Output: {playerOneScore + (Math.floor(Math.random() * 6) + 1)};
+
+<!-- Describe: rollAgain()
 
 Test: Allow the player to roll the dice more than once.
 Code:
 let player = new Player();
 player.rollAgain(Math.floor(Math.random() * 6) + 1);
 player.newRoll;
-Expected Output: {Math.floor(Math.random() * 6) + 1};
+Expected Output: {Math.floor(Math.random() * 6) + 1}; -->
 
 Describe: Game()
 
@@ -63,6 +72,12 @@ Code:
 let game = new Game();
 game;
 Expected Output: {currentPlayerTurn: ""};
+
+<!-- Describe: switchPlayer()
+Test: The game will need to let players change turns.
+Code:
+let game = new Game();
+game.switchPlayer -->
 
 Describe: Dice()
 
