@@ -21,12 +21,13 @@ Player.prototype.addName = function(userName) {
 
 Player.prototype.addScore = function(roundTotalScore) {
 	this.playerScore = this.playerScore + roundTotalScore;
+	this.playerRoundScore = this.playerScore + game.rollDice();
 };
 
 function Game(playerOne, playerTwo) {
 	this.currentPlayerTurn = 0;
 	this.players = [playerOne, playerTwo];
-	this.roundScore = this.rollDice();
+	this.playerRoundScore = 0;
 }
 
 Game.prototype.rollDice = function() {
@@ -43,15 +44,11 @@ Game.prototype.changePlayerTurn = function() {
 
 Game.prototype.evaluateRoll = function() {
 	let roll = this.rollDice();
-	// let roll = 2;
-	console.log("Player turn before change: ", this.currentPlayerTurn);
 	if (roll === 1) {
+		this.playerRoundScore = 0;
 		this.changePlayerTurn();
-		this.playerScore = 0;
-		console.log("player turn after change: ", this.changePlayerTurn);
 	} else if (roll !== 1) {
-		this.currentPlayerTurn;
-		console.log("Player score after roll: ", this.players[this.currentPlayerTurn].playerScore);
+		this.playerRoundScore += roll;
 	}
 }
 
@@ -63,17 +60,16 @@ playerTwo.addName("Alex");
 // playerTwo.addScore(game.rollDice());
 let game = new Game(playerOne, playerTwo);
 console.log(game);
-console.log(game.players[game.currentPlayerTurn]);
-playerOne.addScore(game.rollDice());
-// playerTwo.addScore(game.rollDice());
-console.log(game.evaluateRoll(), game.currentPlayerTurn);
-console.log(game.players[game.currentPlayerTurn]);
-// console.log("Roll one: ", playerOne);
-// console.log("Roll one: ", playerTwo);
+game.evaluateRoll();
+console.log(game);
+game.evaluateRoll();
+console.log(game);
+// console.log(game.players[game.currentPlayerTurn]);
 // playerOne.addScore(game.rollDice());
 // playerTwo.addScore(game.rollDice());
-// console.log("Roll two: ", playerOne);
-// console.log("Roll two: ", playerTwo);
+// console.log(game.evaluateRoll(), game.currentPlayerTurn);
+// console.log(game.evaluateRoll(), game.currentPlayerTurn);
+// console.log(game.players[game.currentPlayerTurn]);
 
 // Player.prototype.rollOne = function() {
 // 	if (this.roll === 1) {
