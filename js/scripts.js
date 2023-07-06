@@ -26,6 +26,7 @@ Player.prototype.addScore = function(roundTotalScore) {
 function Game(playerOne, playerTwo) {
 	this.currentPlayerTurn = 0;
 	this.players = [playerOne, playerTwo];
+	this.roundScore = this.rollDice();
 }
 
 Game.prototype.rollDice = function() {
@@ -42,8 +43,15 @@ Game.prototype.changePlayerTurn = function() {
 
 Game.prototype.evaluateRoll = function() {
 	let roll = this.rollDice();
+	// let roll = 2;
+	console.log("Player turn before change: ", this.currentPlayerTurn);
 	if (roll === 1) {
 		this.changePlayerTurn();
+		this.playerScore = 0;
+		console.log("player turn after change: ", this.changePlayerTurn);
+	} else if (roll !== 1) {
+		this.currentPlayerTurn;
+		console.log("Player score after roll: ", this.players[this.currentPlayerTurn].playerScore);
 	}
 }
 
@@ -56,15 +64,16 @@ playerTwo.addName("Alex");
 let game = new Game(playerOne, playerTwo);
 console.log(game);
 console.log(game.players[game.currentPlayerTurn]);
-console.log(game.evaluateRoll());
-console.log(game.players[game.currentPlayerTurn]);
-
-console.log("Roll one: ", playerOne);
-console.log("Roll one: ", playerTwo);
 playerOne.addScore(game.rollDice());
-playerTwo.addScore(game.rollDice());
-console.log("Roll two: ", playerOne);
-console.log("Roll two: ", playerTwo);
+// playerTwo.addScore(game.rollDice());
+console.log(game.evaluateRoll(), game.currentPlayerTurn);
+console.log(game.players[game.currentPlayerTurn]);
+// console.log("Roll one: ", playerOne);
+// console.log("Roll one: ", playerTwo);
+// playerOne.addScore(game.rollDice());
+// playerTwo.addScore(game.rollDice());
+// console.log("Roll two: ", playerOne);
+// console.log("Roll two: ", playerTwo);
 
 // Player.prototype.rollOne = function() {
 // 	if (this.roll === 1) {
